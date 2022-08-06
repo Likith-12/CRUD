@@ -1,0 +1,16 @@
+<html lang="en">
+<%- include("./Head.ejs") %>
+
+<body style="background-color:#170B3B;">
+  <%- include("./nav.ejs") %>
+
+  <div class="details content">
+    <h1><%= recipe.Name %></h1>
+    <div class="content">
+      <p><%= recipe.Body %></p>
+    </div>
+  </div>
+
+  <p><a href="/<%= recipe._id %>">Click here to delete this recipe</a></p>
+</body>
+</html>

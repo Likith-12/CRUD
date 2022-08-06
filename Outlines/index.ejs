@@ -1,0 +1,26 @@
+<html lang='en'>
+    <%- include("./head.ejs") %>
+
+    <body style="background-color:#170B3B;">
+        <%- include("./nav.ejs") %>
+        <h1>Welcome to Chef's community<h1>
+        <h2> 
+        Select the operation you want to perform -
+            <p>Add a recipe - <a href="/recipes/findrecipe"><button style="background-color:yellow">Add</button></a></p>
+            <p>View one of our recipes -</p>
+        </h2>
+
+        <% if (recipe.length > 0) { %>
+            <% recipe.forEach(recipe => { %>
+              <a class="single" href="/recipes/<%= recipe._id %>">
+                <ol> 
+                  <li><h3 class="Head"><%= recipe.Name %></h3></li> 
+                </ol>
+              </a>
+            <% }) %>
+          <% } else { %>
+            <p>There are no recipes</p>
+          <% } %>
+          
+    </body>
+</html>
