@@ -3,14 +3,28 @@
 
 <body style="background-color:#170B3B;">
   <%- include("./nav.ejs") %>
-
   <div class="details content">
     <h1><%= recipe.Name %></h1>
     <div class="content">
       <p><%= recipe.Body %></p>
     </div>
+    <a class="delete" data-doc="<%= recipe._id %>">Click here to delete</a>
   </div>
 
-  <p><a href="/<%= recipe._id %>">Click here to delete this recipe</a></p>
+  <script>
+    const trashcan = document.querySelector('a.delete');
+
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/recipes/${trashcan.dataset.doc}`;
+
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>
 </body>
 </html>

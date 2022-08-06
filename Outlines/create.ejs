@@ -5,7 +5,7 @@
         <%- include("./nav.ejs") %>
         <h1 style="color:yellow;">Add a new recipe</h1>
         <div class="create-recipe">
-            <form action="/recipes" method="POST">
+            <form action="/recipes/addrecipe" method="POST">
                 <label for="Name" style="color:orange;">Recipe name:</label>
                 <input type="text" id="Name" name="Name" required>
                 <label for="Body" style="color:orange;">Recipe:</label>

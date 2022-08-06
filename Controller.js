@@ -16,16 +16,16 @@ const recipe_index = (req, res) => {
     const id = req.params.id;
     Recipe.findById(id)
       .then(result => {
-        res.render('details', { recipe: result, title: 'Recipe Details' });
+        res.render('details', {recipe : result});
       })
       .catch(err => {
         console.log(err);
-        res.render('error', { title: 'Recipe unavailable' });
+        res.render('error');
       });
   }
 
-  const recipe_create_get = (req, res) => {
-    res.render('create', { title: 'Add new recipe' });
+  const recipe_createpage_get = (req, res) => {
+    res.render('create');
   }
 
   const recipe_create_post = (req, res) => {
@@ -43,7 +43,7 @@ const recipe_index = (req, res) => {
     const id = req.params.id;
     Recipe.findByIdAndDelete(id)
       .then(result => {
-        res.json({ redirect: '/recipe' });
+        res.json({ redirect: '/deleted' });
       })
       .catch(err => {
         console.log(err);
@@ -53,8 +53,8 @@ const recipe_index = (req, res) => {
   module.exports = {
     recipe_index, 
     recipe_details, 
-    recipe_create_get, 
+    recipe_createpage_get, 
     recipe_create_post, 
-    recipe_delete
+    recipe_delete,
   }
   

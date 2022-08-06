@@ -1,33 +1,9 @@
 <html lang="en">
-<%- include("./partials/head.ejs") %>
+<%- include("./Head.ejs") %>
 
-<body>
-  <%- include("./partials/nav.ejs") %>
+<body style="background-color:#170B3B;">
 
-  <div class="details content">
-    <h2><%= blog.title %></h2>
-    <div class="content">
-      <p><%= blog.body %></p>
-    </div>
-    <a class="delete" data-doc="<%= recipe._id %>">
-      <img src="/trashcan.svg" alt="delete icon">
-    </a>
-  </div>
-
-  <script>
-    const trashcan = document.querySelector('a.delete');
-
-    trashcan.addEventListener('click', (e) => {
-      const endpoint = `/recipes/${trashcan.dataset.doc}`;
-
-      fetch(endpoint, {
-        method: 'DELETE',
-      })
-      .then(response => response.json())
-      .then(data => window.location.href = data.redirect)
-      .catch(err => console.log(err));
-    });
-    
-  </script>
+  <h1>The recipe has been deleted</h1>
+  <h2><a href="/">Click here</a> to return to Homepage</h2>
 </body>
 </html>

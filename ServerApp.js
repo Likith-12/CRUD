@@ -31,6 +31,10 @@ app.get('/about',(req, res)=>{
 });
 
 app.use('/recipes', routes);
+
+app.use('/deleted', (req, res) => {
+  res.render('delete');
+})
   
 app.use((req, res) => {
     res.render('error');
